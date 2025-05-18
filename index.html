@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess the Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Guess the Number</h1>
+    <button onclick="start()">Let's Start</button>
+
+    <script>
+        function start() {
+            const number = Math.floor(Math.random() * 100) + 1;
+            let guess = null;
+
+            while (guess !== number) {
+                guess = parseInt(prompt("Guess the number between 1 and 100:"));
+
+                if (isNaN(guess)) {
+                    alert("Please enter a valid number!");
+                    continue;
+                }
+
+                if (guess > number) {
+                    alert("Too High");
+                } else if (guess < number) {
+                    alert("Too Low");
+                } else {
+                    alert("🎉 Congratulations! You guessed it right.");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
